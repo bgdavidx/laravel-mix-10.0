@@ -3,7 +3,11 @@ class Paths {
      * Create a new Paths instance.
      */
     constructor() {
-        this.rootPath = path.resolve(__dirname, '../../../');
+        if (process.env['PWD']) {
+            this.rootPath = process.env['PWD'];   
+        } else {
+            this.rootPath = path.resolve(__dirname, '../../../');
+        }
     }
 
 
